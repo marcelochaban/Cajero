@@ -1,0 +1,70 @@
+JFDML JFormDesigner: "8.1.0.0.283" Java: "17.0.7" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq l {comp panel1::::356:x, space :::p}}"
+			"$verticalGroup": "par l {comp panel1::l::313:x}"
+		} ) {
+			name: "this"
+			"background": new java.awt.Color( 16, 14, 14, 255 )
+			"locationByPlatform": true
+			"resizable": false
+			"preferredSize": new java.awt.Dimension( 360, 320 )
+			"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+			"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq {par l {comp titulo:::p:349:p, seq l {space :6:6:p, par l {comp label1:::p::p, comp label2:::p::p, comp btnLogin:::p:344:p, comp btnSingUp:::p:344:p}}, seq l {space :::p, comp txtPass:::p:344:p}, seq l {space :::p, comp txtUser:::p:344:p}}, space :p:353:p}}"
+				"$verticalGroup": "par l {seq {space :0:0:p, comp titulo:::p::p, space :24:24:p, comp label1:::p::p, space :::p, comp txtUser:::p::p, space :::p, comp label2:::p::p, space :::p, comp txtPass:::p::p, space :::p, comp btnLogin:::::x, space :::p, comp btnSingUp:::p::p, space :p:100:p}}"
+			} ) {
+				name: "panel1"
+				"background": new java.awt.Color( 0, 0, 0, 255 )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "titulo"
+					"text": "Red Chabán"
+					"font": new com.jformdesigner.model.SwingDerivedFont( null, 1, 21, false )
+					"horizontalAlignment": 0
+					"foreground": new java.awt.Color( 19, 230, 230, 255 )
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label1"
+					"text": "User DNI:"
+					"font": &SwingDerivedFont0 new com.jformdesigner.model.SwingDerivedFont( "Serif", 0, 2, false )
+					"foreground": new java.awt.Color( 19, 230, 230, 255 )
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label2"
+					"text": "Password:"
+					"font": #SwingDerivedFont0
+					"foreground": new java.awt.Color( 19, 230, 230, 255 )
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "txtPass"
+					"background": &Color0 new java.awt.Color( 255, 255, 255, 255 )
+					"font": &SwingDerivedFont1 new com.jformdesigner.model.SwingDerivedFont( null, 0, 1, false )
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "btnLogin"
+					"text": "Login"
+					"background": &Color1 new java.awt.Color( 16, 14, 14, 255 )
+					"foreground": &Color2 new java.awt.Color( 19, 230, 230, 255 )
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "btnSingUp"
+					"text": "SingUp"
+					"background": #Color1
+					"foreground": #Color2
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "txtUser"
+					"background": #Color0
+					"font": #SwingDerivedFont1
+				} )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 40 )
+			"size": new java.awt.Dimension( 360, 320 )
+		} )
+	}
+}
