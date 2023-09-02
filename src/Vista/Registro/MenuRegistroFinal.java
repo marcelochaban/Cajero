@@ -4,8 +4,8 @@
 
 package Vista.Registro;
 
-import Controlador.Registro.crearCliente;
-import Controlador.volverLogin;
+import Controlador.Registro.CrearCliente;
+import Controlador.VolverLogin;
 
 import java.awt.*;
 import java.time.LocalDate;
@@ -39,8 +39,8 @@ public class MenuRegistroFinal extends JFrame {
     }
 
     private void initControllers(){
-        btnCancelar.addActionListener(new volverLogin());
-        btnCreate.addActionListener(new crearCliente(nombre,apellido,dni,direccion,fecha,txtUser,pass,comp));
+        btnCancelar.addActionListener(new VolverLogin());
+        btnCreate.addActionListener(new CrearCliente(nombre,apellido,dni,direccion,fecha,txtUser,pass,comp));
     }
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents  @formatter:off

@@ -9,7 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
 
-public class crearCliente implements ActionListener {
+public class CrearCliente implements ActionListener {
     private String nombre;
     private String apellido;
     private String dni;
@@ -22,7 +22,7 @@ public class crearCliente implements ActionListener {
     private JTextField txtPass;
     private JTextField txtComp;
 
-    public crearCliente(String nombre, String apellido, String dni, String direccion,
+    public CrearCliente(String nombre, String apellido, String dni, String direccion,
                         LocalDate fecha, JTextField txtUser, JTextField txtPass, JTextField txtComp) {
         this.nombre = nombre;
         this.apellido = apellido;
@@ -42,8 +42,8 @@ public class crearCliente implements ActionListener {
         if (!user.isBlank()&& !pass.isBlank() && !comp.isBlank()){
             if (pass.equals(comp)){
                 ControladorMain.listaClientes.add(
-                        new Cliente(nombre,apellido,dni,direccion,user,pass,fecha)
-                );
+                        new Cliente(nombre,apellido,dni,direccion,user,pass,fecha));
+                ControladorMain.listaClientes.get(Cliente.cantidadCliente-1).crearCuenta();
                 ControladorMain.cerrarVentana();
                 ControladorMain.ventanaActual=new Loging();
                 ControladorMain.verVentana();

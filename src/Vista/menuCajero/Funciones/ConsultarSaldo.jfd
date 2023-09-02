@@ -1,4 +1,4 @@
-JFDML JFormDesigner: "8.1.0.0.283" Java: "17.0.7" encoding: "UTF-8"
+JFDML JFormDesigner: "8.1.1.0.298" Java: "17.0.8" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
@@ -9,20 +9,21 @@ new FormModel {
 		} ) {
 			name: "this"
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-				"$horizontalGroup": "par l {seq {space :::p, par t {comp separator2::t:p:184:p, par t:t::p {comp titleLabel::l:::x, seq l {comp label2:::p:72:p, space :::p, comp txtName:::p:106:p}, seq l {comp label3:::p:72:p, space :::p, comp txtLName:::p:105:p}, comp separator1::l:p:184:p}}, space :::x}, seq t {space :::x, comp button1:::p:190:p, space :::p}}"
-				"$verticalGroup": "par l {seq {space :::p, comp titleLabel:::p:39:p, space :p:16:p, par l {comp label2:::p:31:p, seq l {space :1:1:p, comp txtName:::p::p}}, space :::p, comp separator1:::p:13:p, space :::p, par l {comp label3:::p:31:p, seq l {space :1:1:p, comp txtLName:::p::p}}, space :p:12:p, comp separator2:::p:12:p, space :::p, comp button1:::p::p, space :::x}}"
+				"$horizontalGroup": "par l {seq {space :::p, par t {comp separator2::t:p:184:p, par t:t::p {comp titleLabel::l:::x, seq l {comp label2:::p:72:p, space :::p, comp txtPesos:::p:106:p}, seq l {comp label3:::p:72:p, space :::p, comp txtUsd:::p:105:p}, comp separator1::l:p:184:p}}, space :::x}, seq t {space :::x, comp btnBack:::p:190:p, space :::p}}"
+				"$verticalGroup": "par l {seq {space :::p, comp titleLabel:::p:39:p, space :p:16:p, par l {comp label2:::p:31:p, seq l {space :1:1:p, comp txtPesos:::p::p}}, space :::p, comp separator1:::p:13:p, space :::p, par l {comp label3:::p:31:p, seq l {space :1:1:p, comp txtUsd:::p::p}}, space :p:12:p, comp separator2:::p:12:p, space :::p, comp btnBack:::p::p, space :::x}}"
 			} ) {
 				name: "panel1"
 				"background": new java.awt.Color( 16, 14, 14, 255 )
 				add( new FormComponent( "javax.swing.JTextField" ) {
-					name: "txtName"
+					name: "txtPesos"
 					"editable": false
-					"foreground": &Color0 new java.awt.Color( 255, 255, 255, 255 )
+					"background": new java.awt.Color( 255, 255, 255, 255 )
+					"foreground": new java.awt.Color( 0, 0, 0, 255 )
 				} )
 				add( new FormComponent( "javax.swing.JLabel" ) {
 					name: "label2"
 					"text": "Pesos:"
-					"foreground": &Color1 new java.awt.Color( 255, 255, 255, 255 )
+					"foreground": &Color0 new java.awt.Color( 255, 255, 255, 255 )
 					"horizontalAlignment": 0
 				} )
 				add( new FormComponent( "javax.swing.JSeparator" ) {
@@ -31,13 +32,14 @@ new FormModel {
 				add( new FormComponent( "javax.swing.JLabel" ) {
 					name: "label3"
 					"text": "Dolares:"
-					"foreground": #Color1
+					"foreground": #Color0
 					"horizontalAlignment": 0
 				} )
 				add( new FormComponent( "javax.swing.JTextField" ) {
-					name: "txtLName"
+					name: "txtUsd"
 					"editable": false
-					"foreground": #Color0
+					"foreground": sfield java.awt.Color black
+					"background": new java.awt.Color( 255, 255, 255, 255 )
 				} )
 				add( new FormComponent( "javax.swing.JSeparator" ) {
 					name: "separator2"
@@ -51,7 +53,7 @@ new FormModel {
 					"background": new java.awt.Color( 16, 14, 14, 255 )
 				} )
 				add( new FormComponent( "javax.swing.JButton" ) {
-					name: "button1"
+					name: "btnBack"
 					"text": "Volver"
 					"background": new java.awt.Color( 16, 14, 14, 255 )
 					"foreground": new java.awt.Color( 255, 255, 255, 255 )

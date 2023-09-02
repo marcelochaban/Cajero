@@ -8,14 +8,14 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class pressLogin implements ActionListener {
+public class PressLogin implements ActionListener {
     private JTextField jTxtUser;
     private JTextField jTxtPass;
     private String user;
     private String password;
     private boolean comp=true;
 
-    public pressLogin(JTextField jTxtUser ,JTextField jTxtPass) {
+    public PressLogin(JTextField jTxtUser , JTextField jTxtPass) {
         this.jTxtUser = jTxtUser;
         this.jTxtPass = jTxtPass;
     }

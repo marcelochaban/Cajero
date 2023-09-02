@@ -7,7 +7,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class nextFecha implements ActionListener {
+public class NextFecha implements ActionListener {
     private JTextField txtName;
     private JTextField txtLName;
     private JTextField txtDNI;
@@ -17,7 +17,7 @@ public class nextFecha implements ActionListener {
     private String apellido;
     private String dni;
     private String direccion;
-    public nextFecha(JTextField txtName, JTextField txtLName, JTextField txtDNI, JTextField txtDireccion) {
+    public NextFecha(JTextField txtName, JTextField txtLName, JTextField txtDNI, JTextField txtDireccion) {
         this.txtName = txtName;
         this.txtLName = txtLName;
         this.txtDNI = txtDNI;

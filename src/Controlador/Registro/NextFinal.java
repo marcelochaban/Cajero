@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.time.Period;
 
-public class nextFinal implements ActionListener {
+public class NextFinal implements ActionListener {
     private JTextField txtDay;
     private JTextField txtMonth;
     private JTextField txtYear;
@@ -27,7 +27,7 @@ public class nextFinal implements ActionListener {
 
     LocalDate fecha;
 
-    public nextFinal(JTextField txtDay, JTextField txtMonth, JTextField txtYear, String nombre, String apellido, String dni, String direccion) {
+    public NextFinal(JTextField txtDay, JTextField txtMonth, JTextField txtYear, String nombre, String apellido, String dni, String direccion) {
         this.txtDay = txtDay;
         this.txtMonth = txtMonth;
         this.txtYear = txtYear;

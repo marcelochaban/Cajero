@@ -4,8 +4,6 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.Scanner;
 
-import static Entitys.Tiempo.*;
-
 public abstract class Usuario {
     String nombre;
     String apellido;

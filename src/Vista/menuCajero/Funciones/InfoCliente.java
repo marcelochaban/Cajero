@@ -4,6 +4,9 @@
 
 package Vista.menuCajero.Funciones;
 
+import Controlador.funcionesMenu.PressBack;
+import Entitys.Usuarios.Cliente;
+
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.GroupLayout;
@@ -12,10 +15,33 @@ import javax.swing.GroupLayout;
  * @author marce
  */
 public class InfoCliente extends JFrame {
-    public InfoCliente() {
+    Cliente cliente;
+
+    public InfoCliente(Cliente cliente) {
+        this.cliente=cliente;
         initComponents();
+        initcontrollers();
     }
 
+    public InfoCliente() {
+        initComponents();
+        initcontrollers();
+    }
+
+    private void initcontrollers(){
+        btnBack.addActionListener(new PressBack(cliente));
+        txtName.setText(cliente.getNombre());
+        txtLName.setText(cliente.getApellido());
+        txtDNI.setText(cliente.getDni());
+        txtDireccion.setText(cliente.getDireccion());
+        txtUser.setText(cliente.getUserName());
+        txtPass.setText(cliente.getPassword());
+        txtCBU.setText(cliente.getDebito().getCbu());
+        txtAlias.setText(cliente.getDebito().getAlias());
+        txtTarjeta.setText(cliente.getDebito().getNumTarjeta());
+
+
+    }
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents  @formatter:off
         // Generated using JFormDesigner Evaluation license - marcelo
@@ -34,20 +60,20 @@ public class InfoCliente extends JFrame {
         txtDireccion = new JTextField();
         separator4 = new JSeparator();
         label7 = new JLabel();
-        txtName2 = new JTextField();
+        txtUser = new JTextField();
         separator5 = new JSeparator();
         label8 = new JLabel();
-        txtLName2 = new JTextField();
+        txtPass = new JTextField();
         separator6 = new JSeparator();
         label9 = new JLabel();
-        txtDNI2 = new JTextField();
+        txtCBU = new JTextField();
         separator7 = new JSeparator();
-        button1 = new JButton();
+        btnBack = new JButton();
         label10 = new JLabel();
-        txtDNI3 = new JTextField();
+        txtAlias = new JTextField();
         separator8 = new JSeparator();
         label6 = new JLabel();
-        txtDireccion2 = new JTextField();
+        txtTarjeta = new JTextField();
         separator9 = new JSeparator();
 
         //======== this ========
@@ -56,13 +82,11 @@ public class InfoCliente extends JFrame {
         //======== panel1 ========
         {
             panel1.setBackground(new Color(0x100e0e));
-            panel1.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax
-            . swing. border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e", javax. swing
-            . border. TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM, new java .awt .
-            Font ("Dialo\u0067" ,java .awt .Font .BOLD ,12 ), java. awt. Color. red
-            ) ,panel1. getBorder( )) ); panel1. addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override
-            public void propertyChange (java .beans .PropertyChangeEvent e) {if ("borde\u0072" .equals (e .getPropertyName (
-            ) )) throw new RuntimeException( ); }} );
+            panel1.setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder(
+            0,0,0,0), "JF\u006frmDes\u0069gner \u0045valua\u0074ion",javax.swing.border.TitledBorder.CENTER,javax.swing.border.TitledBorder
+            .BOTTOM,new java.awt.Font("D\u0069alog",java.awt.Font.BOLD,12),java.awt.Color.
+            red),panel1. getBorder()));panel1. addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override public void propertyChange(java.
+            beans.PropertyChangeEvent e){if("\u0062order".equals(e.getPropertyName()))throw new RuntimeException();}});
 
             //---- label1 ----
             label1.setText("Informaci\u00f3n Cliente");
@@ -77,7 +101,8 @@ public class InfoCliente extends JFrame {
 
             //---- txtName ----
             txtName.setEditable(false);
-            txtName.setForeground(Color.white);
+            txtName.setForeground(Color.black);
+            txtName.setBackground(Color.white);
 
             //---- label3 ----
             label3.setText("Apellido:");
@@ -86,7 +111,8 @@ public class InfoCliente extends JFrame {
 
             //---- txtLName ----
             txtLName.setEditable(false);
-            txtLName.setForeground(Color.white);
+            txtLName.setForeground(Color.black);
+            txtLName.setBackground(Color.white);
 
             //---- label4 ----
             label4.setText("D.N.I.  :");
@@ -95,7 +121,8 @@ public class InfoCliente extends JFrame {
 
             //---- txtDNI ----
             txtDNI.setEditable(false);
-            txtDNI.setForeground(Color.white);
+            txtDNI.setForeground(Color.black);
+            txtDNI.setBackground(Color.white);
 
             //---- label5 ----
             label5.setText("Direcci\u00f3n:");
@@ -104,57 +131,63 @@ public class InfoCliente extends JFrame {
 
             //---- txtDireccion ----
             txtDireccion.setEditable(false);
-            txtDireccion.setForeground(Color.white);
+            txtDireccion.setForeground(Color.black);
+            txtDireccion.setBackground(Color.white);
 
             //---- label7 ----
             label7.setText("Usuario");
             label7.setForeground(Color.white);
             label7.setHorizontalAlignment(SwingConstants.CENTER);
 
-            //---- txtName2 ----
-            txtName2.setEditable(false);
-            txtName2.setForeground(Color.white);
+            //---- txtUser ----
+            txtUser.setEditable(false);
+            txtUser.setForeground(Color.black);
+            txtUser.setBackground(Color.white);
 
             //---- label8 ----
             label8.setText("Clave :");
             label8.setForeground(Color.white);
             label8.setHorizontalAlignment(SwingConstants.CENTER);
 
-            //---- txtLName2 ----
-            txtLName2.setEditable(false);
-            txtLName2.setForeground(Color.white);
+            //---- txtPass ----
+            txtPass.setEditable(false);
+            txtPass.setForeground(Color.black);
+            txtPass.setBackground(Color.white);
 
             //---- label9 ----
             label9.setText("CBU");
             label9.setForeground(Color.white);
             label9.setHorizontalAlignment(SwingConstants.CENTER);
 
-            //---- txtDNI2 ----
-            txtDNI2.setEditable(false);
-            txtDNI2.setForeground(Color.white);
+            //---- txtCBU ----
+            txtCBU.setEditable(false);
+            txtCBU.setForeground(Color.black);
+            txtCBU.setBackground(Color.white);
 
-            //---- button1 ----
-            button1.setText("Volver");
-            button1.setBackground(new Color(0x100e0e));
-            button1.setForeground(Color.white);
+            //---- btnBack ----
+            btnBack.setText("Volver");
+            btnBack.setBackground(new Color(0x100e0e));
+            btnBack.setForeground(Color.white);
 
             //---- label10 ----
             label10.setText("Alias");
             label10.setForeground(Color.white);
             label10.setHorizontalAlignment(SwingConstants.CENTER);
 
-            //---- txtDNI3 ----
-            txtDNI3.setEditable(false);
-            txtDNI3.setForeground(Color.white);
+            //---- txtAlias ----
+            txtAlias.setEditable(false);
+            txtAlias.setForeground(Color.black);
+            txtAlias.setBackground(Color.white);
 
             //---- label6 ----
             label6.setText("Numero de tarjeta:");
             label6.setForeground(Color.white);
             label6.setHorizontalAlignment(SwingConstants.CENTER);
 
-            //---- txtDireccion2 ----
-            txtDireccion2.setEditable(false);
-            txtDireccion2.setForeground(Color.white);
+            //---- txtTarjeta ----
+            txtTarjeta.setEditable(false);
+            txtTarjeta.setForeground(Color.black);
+            txtTarjeta.setBackground(Color.white);
 
             GroupLayout panel1Layout = new GroupLayout(panel1);
             panel1.setLayout(panel1Layout);
@@ -163,7 +196,7 @@ public class InfoCliente extends JFrame {
                     .addGroup(panel1Layout.createSequentialGroup()
                         .addGroup(panel1Layout.createParallelGroup()
                             .addComponent(label1, GroupLayout.PREFERRED_SIZE, 606, GroupLayout.PREFERRED_SIZE)
-                            .addComponent(button1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnBack, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(panel1Layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addGroup(panel1Layout.createParallelGroup()
@@ -180,7 +213,7 @@ public class InfoCliente extends JFrame {
                                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(label9, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE)
                                                 .addGap(6, 6, 6)
-                                                .addComponent(txtDNI2, GroupLayout.PREFERRED_SIZE, 235, GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(txtCBU, GroupLayout.PREFERRED_SIZE, 235, GroupLayout.PREFERRED_SIZE))
                                             .addGroup(panel1Layout.createSequentialGroup()
                                                 .addGroup(panel1Layout.createParallelGroup()
                                                     .addGroup(panel1Layout.createSequentialGroup()
@@ -198,12 +231,12 @@ public class InfoCliente extends JFrame {
                                                     .addGroup(panel1Layout.createSequentialGroup()
                                                         .addComponent(label7, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE)
                                                         .addGap(6, 6, 6)
-                                                        .addComponent(txtName2, GroupLayout.PREFERRED_SIZE, 235, GroupLayout.PREFERRED_SIZE))
+                                                        .addComponent(txtUser, GroupLayout.PREFERRED_SIZE, 235, GroupLayout.PREFERRED_SIZE))
                                                     .addComponent(separator5, GroupLayout.PREFERRED_SIZE, 313, GroupLayout.PREFERRED_SIZE)
                                                     .addGroup(panel1Layout.createSequentialGroup()
                                                         .addComponent(label8, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE)
                                                         .addGap(6, 6, 6)
-                                                        .addComponent(txtLName2, GroupLayout.PREFERRED_SIZE, 235, GroupLayout.PREFERRED_SIZE))
+                                                        .addComponent(txtPass, GroupLayout.PREFERRED_SIZE, 235, GroupLayout.PREFERRED_SIZE))
                                                     .addComponent(separator6, GroupLayout.PREFERRED_SIZE, 303, GroupLayout.PREFERRED_SIZE)))
                                             .addGroup(panel1Layout.createSequentialGroup()
                                                 .addComponent(label5, GroupLayout.PREFERRED_SIZE, 74, GroupLayout.PREFERRED_SIZE)
@@ -212,7 +245,7 @@ public class InfoCliente extends JFrame {
                                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(label10, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(txtDNI3, GroupLayout.PREFERRED_SIZE, 235, GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(txtAlias, GroupLayout.PREFERRED_SIZE, 235, GroupLayout.PREFERRED_SIZE))
                                             .addGroup(panel1Layout.createSequentialGroup()
                                                 .addComponent(separator4, GroupLayout.PREFERRED_SIZE, 313, GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
@@ -225,7 +258,7 @@ public class InfoCliente extends JFrame {
                                             .addGroup(panel1Layout.createSequentialGroup()
                                                 .addComponent(label6, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(txtDireccion2, GroupLayout.PREFERRED_SIZE, 484, GroupLayout.PREFERRED_SIZE)))))))
+                                                .addComponent(txtTarjeta, GroupLayout.PREFERRED_SIZE, 484, GroupLayout.PREFERRED_SIZE)))))))
                         .addGap(10, 10, 10))
             );
             panel1Layout.setVerticalGroup(
@@ -264,7 +297,7 @@ public class InfoCliente extends JFrame {
                                             .addComponent(label7, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
                                             .addGroup(panel1Layout.createSequentialGroup()
                                                 .addGap(1, 1, 1)
-                                                .addComponent(txtName2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+                                                .addComponent(txtUser, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
                                         .addGap(6, 6, 6)
                                         .addComponent(separator5, GroupLayout.PREFERRED_SIZE, 12, GroupLayout.PREFERRED_SIZE)
                                         .addGap(6, 6, 6)
@@ -272,7 +305,7 @@ public class InfoCliente extends JFrame {
                                             .addComponent(label8, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
                                             .addGroup(panel1Layout.createSequentialGroup()
                                                 .addGap(1, 1, 1)
-                                                .addComponent(txtLName2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+                                                .addComponent(txtPass, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
                                         .addGap(12, 12, 12)
                                         .addComponent(separator6, GroupLayout.PREFERRED_SIZE, 12, GroupLayout.PREFERRED_SIZE)
                                         .addGap(5, 5, 5)
@@ -280,7 +313,7 @@ public class InfoCliente extends JFrame {
                                             .addComponent(label9, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
                                             .addGroup(panel1Layout.createSequentialGroup()
                                                 .addGap(1, 1, 1)
-                                                .addComponent(txtDNI2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))))
+                                                .addComponent(txtCBU, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))))
                                 .addGap(6, 6, 6)
                                 .addGroup(panel1Layout.createParallelGroup()
                                     .addComponent(separator3, GroupLayout.PREFERRED_SIZE, 12, GroupLayout.PREFERRED_SIZE)
@@ -290,18 +323,18 @@ public class InfoCliente extends JFrame {
                                     .addComponent(label5, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtDireccion, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                     .addComponent(label10, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtDNI3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtAlias, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(separator4, GroupLayout.PREFERRED_SIZE, 12, GroupLayout.PREFERRED_SIZE))
                             .addComponent(separator8, GroupLayout.PREFERRED_SIZE, 12, GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                             .addComponent(label6, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtDireccion2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtTarjeta, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(separator9, GroupLayout.PREFERRED_SIZE, 12, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(button1)
+                        .addComponent(btnBack)
                         .addContainerGap(11, Short.MAX_VALUE))
             );
         }
@@ -321,6 +354,10 @@ public class InfoCliente extends JFrame {
         // JFormDesigner - End of component initialization  //GEN-END:initComponents  @formatter:on
     }
 
+    public void initControllers(){
+        btnBack.addActionListener(new PressBack(cliente));
+    }
+
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables  @formatter:off
     // Generated using JFormDesigner Evaluation license - marcelo
     private JPanel panel1;
@@ -338,20 +375,20 @@ public class InfoCliente extends JFrame {
     private JTextField txtDireccion;
     private JSeparator separator4;
     private JLabel label7;
-    private JTextField txtName2;
+    private JTextField txtUser;
     private JSeparator separator5;
     private JLabel label8;
-    private JTextField txtLName2;
+    private JTextField txtPass;
     private JSeparator separator6;
     private JLabel label9;
-    private JTextField txtDNI2;
+    private JTextField txtCBU;
     private JSeparator separator7;
-    private JButton button1;
+    private JButton btnBack;
     private JLabel label10;
-    private JTextField txtDNI3;
+    private JTextField txtAlias;
     private JSeparator separator8;
     private JLabel label6;
-    private JTextField txtDireccion2;
+    private JTextField txtTarjeta;
     private JSeparator separator9;
     // JFormDesigner - End of variables declaration  //GEN-END:variables  @formatter:on
 }

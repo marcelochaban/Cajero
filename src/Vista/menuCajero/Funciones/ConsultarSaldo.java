@@ -4,6 +4,9 @@
 
 package Vista.menuCajero.Funciones;
 
+import Controlador.funcionesMenu.PressBack;
+import Entitys.Usuarios.Cliente;
+
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.GroupLayout;
@@ -12,22 +15,34 @@ import javax.swing.GroupLayout;
  * @author marce
  */
 public class ConsultarSaldo extends JFrame {
-    public ConsultarSaldo() {
+
+    Cliente cliente;
+    public ConsultarSaldo(Cliente cliente) {
+        this.cliente=cliente;
         initComponents();
+        initControllers();
     }
 
+
+    public void initControllers(){
+        btnBack.addActionListener(new PressBack(cliente));
+        String auxpPesos=Double.toString(cliente.getDebito().getSaldoPesos());
+        String auxpUsd=Double.toString(cliente.getDebito().getSaldoUsd());
+        txtUsd.setText(auxpUsd);
+        txtPesos.setText(auxpPesos);
+    }
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents  @formatter:off
         // Generated using JFormDesigner Evaluation license - marcelo
         panel1 = new JPanel();
-        txtName = new JTextField();
+        txtPesos = new JTextField();
         label2 = new JLabel();
         separator1 = new JSeparator();
         label3 = new JLabel();
-        txtLName = new JTextField();
+        txtUsd = new JTextField();
         separator2 = new JSeparator();
         titleLabel = new JLabel();
-        button1 = new JButton();
+        btnBack = new JButton();
 
         //======== this ========
         var contentPane = getContentPane();
@@ -35,16 +50,19 @@ public class ConsultarSaldo extends JFrame {
         //======== panel1 ========
         {
             panel1.setBackground(new Color(0x100e0e));
-            panel1.setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.border.
-            EmptyBorder(0,0,0,0), "JFor\u006dDesi\u0067ner \u0045valu\u0061tion",javax.swing.border.TitledBorder.CENTER,javax.swing
-            .border.TitledBorder.BOTTOM,new java.awt.Font("Dia\u006cog",java.awt.Font.BOLD,12),
-            java.awt.Color.red),panel1. getBorder()));panel1. addPropertyChangeListener(new java.beans.PropertyChangeListener()
-            {@Override public void propertyChange(java.beans.PropertyChangeEvent e){if("bord\u0065r".equals(e.getPropertyName()))
-            throw new RuntimeException();}});
+            panel1.setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder (
+            new javax . swing. border .EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frmDes\u0069gner \u0045valua\u0074ion"
+            , javax. swing .border . TitledBorder. CENTER ,javax . swing. border .TitledBorder . BOTTOM
+            , new java. awt .Font ( "D\u0069alog", java .awt . Font. BOLD ,12 )
+            ,java . awt. Color .red ) ,panel1. getBorder () ) ); panel1. addPropertyChangeListener(
+            new java. beans .PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e
+            ) { if( "\u0062order" .equals ( e. getPropertyName () ) )throw new RuntimeException( )
+            ;} } );
 
-            //---- txtName ----
-            txtName.setEditable(false);
-            txtName.setForeground(Color.white);
+            //---- txtPesos ----
+            txtPesos.setEditable(false);
+            txtPesos.setBackground(Color.white);
+            txtPesos.setForeground(Color.black);
 
             //---- label2 ----
             label2.setText("Pesos:");
@@ -56,9 +74,10 @@ public class ConsultarSaldo extends JFrame {
             label3.setForeground(Color.white);
             label3.setHorizontalAlignment(SwingConstants.CENTER);
 
-            //---- txtLName ----
-            txtLName.setEditable(false);
-            txtLName.setForeground(Color.white);
+            //---- txtUsd ----
+            txtUsd.setEditable(false);
+            txtUsd.setForeground(Color.black);
+            txtUsd.setBackground(Color.white);
 
             //---- titleLabel ----
             titleLabel.setText("Consulta de Saldo");
@@ -67,10 +86,10 @@ public class ConsultarSaldo extends JFrame {
             titleLabel.setForeground(new Color(0x13e6e6));
             titleLabel.setBackground(new Color(0x100e0e));
 
-            //---- button1 ----
-            button1.setText("Volver");
-            button1.setBackground(new Color(0x100e0e));
-            button1.setForeground(Color.white);
+            //---- btnBack ----
+            btnBack.setText("Volver");
+            btnBack.setBackground(new Color(0x100e0e));
+            btnBack.setForeground(Color.white);
 
             GroupLayout panel1Layout = new GroupLayout(panel1);
             panel1.setLayout(panel1Layout);
@@ -85,16 +104,16 @@ public class ConsultarSaldo extends JFrame {
                                 .addGroup(GroupLayout.Alignment.LEADING, panel1Layout.createSequentialGroup()
                                     .addComponent(label2, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(txtName, GroupLayout.PREFERRED_SIZE, 106, GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtPesos, GroupLayout.PREFERRED_SIZE, 106, GroupLayout.PREFERRED_SIZE))
                                 .addGroup(GroupLayout.Alignment.LEADING, panel1Layout.createSequentialGroup()
                                     .addComponent(label3, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(txtLName, GroupLayout.PREFERRED_SIZE, 105, GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtUsd, GroupLayout.PREFERRED_SIZE, 105, GroupLayout.PREFERRED_SIZE))
                                 .addComponent(separator1, GroupLayout.Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 184, GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
                         .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(button1, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnBack, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
             );
             panel1Layout.setVerticalGroup(
@@ -107,7 +126,7 @@ public class ConsultarSaldo extends JFrame {
                             .addComponent(label2, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
                             .addGroup(panel1Layout.createSequentialGroup()
                                 .addGap(1, 1, 1)
-                                .addComponent(txtName, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txtPesos, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(separator1, GroupLayout.PREFERRED_SIZE, 13, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
@@ -115,11 +134,11 @@ public class ConsultarSaldo extends JFrame {
                             .addComponent(label3, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
                             .addGroup(panel1Layout.createSequentialGroup()
                                 .addGap(1, 1, 1)
-                                .addComponent(txtLName, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txtUsd, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
                         .addGap(12, 12, 12)
                         .addComponent(separator2, GroupLayout.PREFERRED_SIZE, 12, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(button1)
+                        .addComponent(btnBack)
                         .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             );
         }
@@ -142,13 +161,13 @@ public class ConsultarSaldo extends JFrame {
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables  @formatter:off
     // Generated using JFormDesigner Evaluation license - marcelo
     private JPanel panel1;
-    private JTextField txtName;
+    private JTextField txtPesos;
     private JLabel label2;
     private JSeparator separator1;
     private JLabel label3;
-    private JTextField txtLName;
+    private JTextField txtUsd;
     private JSeparator separator2;
     private JLabel titleLabel;
-    private JButton button1;
+    private JButton btnBack;
     // JFormDesigner - End of variables declaration  //GEN-END:variables  @formatter:on
 }

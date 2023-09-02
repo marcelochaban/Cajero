@@ -4,8 +4,8 @@
 
 package Vista.Registro;
 
-import Controlador.Registro.nextFecha;
-import Controlador.volverLogin;
+import Controlador.Registro.NextFecha;
+import Controlador.VolverLogin;
 
 import java.awt.*;
 import javax.swing.*;
@@ -21,8 +21,8 @@ public class MenuRegistro extends JFrame {
     }
 
     private void initControllers(){
-        btnCancelar.addActionListener(new volverLogin());
-        btnNext.addActionListener(new nextFecha(txtName,txtLName,txtDNI,txtDireccion));
+        btnCancelar.addActionListener(new VolverLogin());
+        btnNext.addActionListener(new NextFecha(txtName,txtLName,txtDNI,txtDireccion));
     }
 
     private void initComponents() {

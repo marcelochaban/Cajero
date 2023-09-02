@@ -4,7 +4,8 @@
 
 package Vista.menuCajero;
 
-import Controlador.volverLogin;
+import Controlador.funcionesMenu.*;
+import Controlador.VolverLogin;
 import Entitys.Usuarios.Cliente;
 
 import java.awt.*;
@@ -20,6 +21,8 @@ public class MenuCliente extends JFrame {
 
     public MenuCliente(Cliente cliente){
         this.cliente = cliente;
+        initComponents();
+        initControllers();
     }
 
     public MenuCliente() {
@@ -27,12 +30,18 @@ public class MenuCliente extends JFrame {
         initControllers();
     }
     private void initControllers(){
-        btnExit.addActionListener(new volverLogin());
+        btnExit.addActionListener(new VolverLogin());
+        btnInfo.addActionListener(new PressInfo(cliente));
+        btnConsultarSaldo.addActionListener(new PressCheckBalance(cliente));
+        btnEnviarDinero.addActionListener(new PressSend(cliente));
+        btnIngresarDinero.addActionListener(new PressDeposit(cliente));
+        btnRetirarDinero.addActionListener(new PressWithdraw(cliente));
+
     }
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents  @formatter:off
-        // Generated using JFormDesigner Evaluation license - marcelo
+        // Generated using JFormDesigner Evaluation license - marce
         panel1 = new JPanel();
         btnExit = new JButton();
         titleLabel = new JLabel();
@@ -44,17 +53,17 @@ public class MenuCliente extends JFrame {
 
         //======== this ========
         setBackground(new Color(0x100e0e));
+        setAlwaysOnTop(true);
         var contentPane = getContentPane();
 
         //======== panel1 ========
         {
             panel1.setBackground(new Color(0x100e0e));
-            panel1.setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border .
-            EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frm\u0044es\u0069gn\u0065r \u0045va\u006cua\u0074io\u006e" , javax. swing .border . TitledBorder. CENTER ,javax . swing
-            . border .TitledBorder . BOTTOM, new java. awt .Font ( "D\u0069al\u006fg", java .awt . Font. BOLD ,12 ) ,
-            java . awt. Color .red ) ,panel1. getBorder () ) ); panel1. addPropertyChangeListener( new java. beans .PropertyChangeListener ( )
-            { @Override public void propertyChange (java . beans. PropertyChangeEvent e) { if( "\u0062or\u0064er" .equals ( e. getPropertyName () ) )
-            throw new RuntimeException( ) ;} } );
+            panel1.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder(
+            0, 0, 0, 0) , "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn", javax. swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder
+            . BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 ), java. awt. Color.
+            red) ,panel1. getBorder( )) ); panel1. addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .
+            beans .PropertyChangeEvent e) {if ("\u0062ord\u0065r" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
 
             //---- btnExit ----
             btnExit.setText("Salir");
@@ -113,9 +122,9 @@ public class MenuCliente extends JFrame {
                                                 .addComponent(btnEnviarDinero, GroupLayout.PREFERRED_SIZE, 122, GroupLayout.PREFERRED_SIZE)
                                                 .addGap(12, 12, 12)
                                                 .addComponent(btnRetirarDinero, GroupLayout.PREFERRED_SIZE, 131, GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(0, 1, Short.MAX_VALUE))))
-                            .addComponent(btnInfo, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
-                            .addComponent(btnExit, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE))
+                                        .addGap(0, 0, Short.MAX_VALUE))))
+                            .addComponent(btnInfo, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnExit, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap())
             );
             panel1Layout.setVerticalGroup(
@@ -135,7 +144,7 @@ public class MenuCliente extends JFrame {
                         .addComponent(btnInfo)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnExit)
-                        .addContainerGap(8, Short.MAX_VALUE))
+                        .addContainerGap(38, Short.MAX_VALUE))
             );
         }
 
@@ -155,7 +164,7 @@ public class MenuCliente extends JFrame {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables  @formatter:off
-    // Generated using JFormDesigner Evaluation license - marcelo
+    // Generated using JFormDesigner Evaluation license - marce
     private JPanel panel1;
     private JButton btnExit;
     private JLabel titleLabel;
